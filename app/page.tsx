@@ -117,7 +117,7 @@ export default async function Home() {
             I'm a CS Engineer based in Bengaluru. I build reliable Android apps and scalable AI systems — focused on shipping useful tools quickly.
           </p>
           <div className="flex items-center gap-3 pt-4">
-            <a href="/resume" className="inline-flex items-center gap-2 bg-surface0/50 text-text border border-surface0 px-4 py-2 rounded-md hover:bg-green hover:text-base transition-all duration-200 font-bold">View resume</a>
+            <a href="/resume" aria-label="View resume" className="inline-flex items-center gap-2 bg-surface0/50 text-text border border-surface0 px-4 py-2 rounded-md hover:bg-green hover:text-base transition-all duration-200 font-bold">View resume</a>
             <div className="flex flex-wrap items-center gap-3 text-sm font-mono pt-0 text-subtext0">
             <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" aria-label="Open GitHub (new tab)" className="flex items-center gap-2 hover:text-green transition-colors"><Github className="w-4 h-4" /> GitHub</a>
             <span className="text-surface0">/</span>

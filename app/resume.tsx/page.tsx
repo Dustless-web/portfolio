@@ -15,19 +15,31 @@ export default function Resume() {
               Resume
             </h1>
             <p className="text-subtext0 font-mono text-sm max-w-md">
-              A detailed overview of my experience, skills, and education.
+              Current role: Computer Science Engineer (Android & AI). Open to short-term contracts and collaborations.
             </p>
+
+            {/* Small skills badges */}
+            <div className="mt-3 flex flex-wrap gap-2">
+              {['Android','Kotlin','TypeScript','Next.js','Python','AI'].map(s => (
+                <span key={s} className="text-[11px] px-2 py-1 rounded bg-surface0/30 text-overlay0 border border-surface0/40">{s}</span>
+              ))}
+            </div>
           </div>
 
           {/* Download Button */}
-          <a 
-            href="/resume.pdf" 
-            download="Avinash_Sangisetti_Resume.pdf"
-            className="flex items-center gap-2 bg-green text-base font-bold px-6 py-3 rounded-lg hover:bg-green/90 transition-all shadow-lg shadow-green/20"
-          >
-            <Download className="w-5 h-5" />
-            Download PDF
-          </a>
+          <div className="flex items-center gap-4">
+            <a 
+              href="/resume.pdf" 
+              download="Avinash_Sangisetti_Resume.pdf"
+              aria-label="Download resume PDF"
+              className="flex items-center gap-2 bg-green text-base font-bold px-5 py-2 rounded-md hover:bg-green/90 transition-all shadow-sm shadow-green/10"
+            >
+              <Download className="w-4 h-4" />
+              Download
+            </a>
+
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab" className="text-sm text-subtext0 border border-surface0 px-4 py-2 rounded-md hover:bg-base/20 transition-colors">Open in new tab</a>
+          </div>
         </div>
 
         {/* PDF Previewer */}
@@ -57,6 +69,8 @@ export default function Resume() {
               <a 
                 href="/resume.pdf" 
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open resume in new tab"
                 className="text-green border border-green px-4 py-2 rounded hover:bg-green/10 transition-colors"
               >
                 Open in New Tab

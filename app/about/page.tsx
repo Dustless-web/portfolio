@@ -43,7 +43,7 @@ export default function About() {
             </p>
 
             <p>
-              Outside work, I enjoy games, cinema, and philosophy. If you'd like to work together or chat, <a href="mailto:avinashsangisetti@gmail.com" className="text-green hover:underline">email me</a> or <a href="/resume" className="text-text border-b border-surface0 hover:text-green">view my resume</a>.
+              Outside work, I enjoy games, cinema, and philosophy. If you'd like to work together or chat, <a href="mailto:avinashsangisetti@gmail.com" className="text-green hover:underline">email me</a> or <a href="/resume" aria-label="View resume" className="text-text border-b border-surface0 hover:text-green">view my resume</a>.
             </p>
           </div>
 
