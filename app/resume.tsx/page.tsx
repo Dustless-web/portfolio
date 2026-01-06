@@ -30,7 +30,7 @@ export default function Resume() {
           <div className="flex items-center gap-4">
             <a 
               href="/resume.pdf" 
-              download="Avinash_Sangisetti_Resume.pdf"
+              download="resume.pdf"
               aria-label="Download resume PDF"
               className="flex items-center gap-2 bg-green text-base font-bold px-5 py-2 rounded-md hover:bg-green/90 transition-all shadow-sm shadow-green/10"
             >
