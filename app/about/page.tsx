@@ -16,7 +16,7 @@ export default function About() {
                 
                 {/* THE IMAGE COMPONENT: use explicit width/height so Next can optimize */}
                 <Image 
-                  src="/avatar.jpg" // This looks in the 'public' folder
+                  src="/avatar.jpeg" // This looks in the 'public' folder
                   alt="Avinash Sangisetti"
                   width={260}
                   height={260}
