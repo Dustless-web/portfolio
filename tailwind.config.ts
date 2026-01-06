@@ -25,6 +25,10 @@ const config: Config = {
         text: "#e4e4e7",       // Main Text: Soft White (Zinc-200)
         subtext0: "#a1a1aa",   // Muted Text: Light Grey (Zinc-400)
         overlay0: "#71717a",   // Icons/Meta: Darker Grey (Zinc-500)
+
+        // --- ACCENT & PRIMARY (subtle) ---
+        accent: "#7dd3fc",
+        primary: "#94f3a2",
         
         // --- MAC WINDOW DOT COLORS ---
         red: "#f38ba8",
@@ -34,6 +38,26 @@ const config: Config = {
       },
       fontFamily: {
         mono: ['var(--font-jetbrains)', 'monospace'],
+      },
+      container: {
+        center: true,
+        padding: '1rem',
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+        },
+      },
+      fontSize: {
+        'lead': ['1.0625rem', { lineHeight: '1.75' }], // 17px
+      },
+      spacing: {
+        '9': '2.25rem',
+        '14': '3.5rem',
+      },
+      boxShadow: {
+        'soft-lg': '0 8px 30px rgba(2,6,23,0.35)',
       },
     },
   },

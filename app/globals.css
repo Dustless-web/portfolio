@@ -24,3 +24,85 @@ body {
   opacity: 0.03; /* Very subtle grain */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
+
+/* Skip link (hidden until focused) */
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: rgba(255,255,255,0.06);
+  color: #e6edf3;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 9999;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.35);
+}
+
+/* Focus-visible outlines for keyboard users */
+:focus-visible {
+  outline: 2px solid rgba(125,211,252,0.9);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Lead paragraph helper */
+.lead {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #cdd6f4;
+  opacity: 0.95;
+}
+
+/* Dynamic island / static, blend-in pill (tamer shadow) */
+.dynamic-island {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dynamic-island__pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(24,24,27,0.84);
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
+  border: none;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.22);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Shrink pill on small screens a bit */
+@media (max-width: 640px) {
+  .dynamic-island { top: 0; }
+  .dynamic-island__pill { padding: 0.45rem 0.75rem; gap: 0.5rem; transform-origin: center; }
+}
+
+/* Decorative blob removed */
+.dynamic-island__blob { display: none; }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

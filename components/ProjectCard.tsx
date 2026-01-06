@@ -9,14 +9,15 @@ interface ProjectProps {
 }
 
 export default function ProjectCard({ title, description, stats, tags, color }: ProjectProps) {
+  const slug = `project-${title.replace(/\s+/g, '-').toLowerCase()}`;
   return (
-    <div className="group relative bg-mantle border border-white/5 rounded-xl p-6 hover:-translate-y-1 transition-all duration-300 hover:border-white/10">
+    <div role="article" tabIndex={0} aria-labelledby={slug} className="group relative bg-mantle border border-white/5 rounded-xl p-6 transform transition-all duration-300 hover:scale-[1.018] hover:shadow-soft-lg hover:border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2">
       
       {/* Top Header */}
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-3">
           <Folder className={`w-5 h-5 ${color}`} />
-          <h3 className="text-lg font-bold group-hover:text-accent transition-colors">
+          <h3 id={slug} className="text-lg font-bold text-text group-hover:text-green transition-colors">
             {title}
           </h3>
         </div>
@@ -34,8 +35,8 @@ export default function ProjectCard({ title, description, stats, tags, color }: 
       {/* Footer Tags */}
       <div className="flex flex-wrap gap-2 mt-auto">
         {tags.map((tag) => (
-          <span key={tag} className="text-xs font-medium px-2 py-1 rounded bg-white/5 text-primary border border-white/5">
-            #{tag}
+          <span key={tag} title={tag} className="text-xs font-medium px-2 py-1 rounded bg-white/5 text-primary border border-white/5">
+            {tag}
           </span>
         ))}
       </div>

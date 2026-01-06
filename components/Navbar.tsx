@@ -19,38 +19,49 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between py-8 mb-8 font-mono relative z-50">
-        <Link href="/" className="text-text font-bold text-xl flex items-center gap-2">
-          <span className="text-overlay0">~/</span>
-          <span className="text-green animate-pulse">▐</span>
-        </Link>
+      <a href="#main" className="skip-link">Skip to content</a>
+      {/* Dynamic Island: sticky at top */}
+      <div className="dynamic-island">
+        <div className="relative w-full max-w-4xl px-4">
+          <div className="dynamic-island__pill mx-auto flex items-center justify-between">
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 text-sm text-subtext0">
+            <Link href="/" className="flex items-center gap-3" aria-label="Home">
+              <img src="/as-icon.svg" alt="AS" width={40} height={40} className="block" />
+              <span className="sr-only">Avinash Sangisetti — Home</span>
+            </Link>
+
+            {/* Desktop Menu */}
+            <nav aria-label="Primary" className="hidden md:flex gap-6 text-sm text-subtext0">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className={`hover:text-green transition-colors ${
+              className={`hover:text-green transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-green rounded ${
                 pathname === link.path ? "text-green font-bold underline decoration-wavy underline-offset-4" : ""
               }`}
             >
               {link.name}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-text hover:text-green transition-colors"
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
-      </nav>
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-drawer"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="md:hidden text-text hover:text-green transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-green rounded"
+            >
+              {isOpen ? <X /> : <Menu />}
+            </button>
+
+          </div>
+        </div>
+      </div>
 
       {/* Mobile Drawer */}
-      <div className={`fixed inset-y-0 right-0 w-64 bg-mantle border-l border-surface0 shadow-2xl transform transition-transform duration-300 ease-in-out z-40 ${
+      <div id="mobile-drawer" role="dialog" aria-modal="true" className={`fixed inset-y-0 right-0 w-64 bg-mantle border-l border-surface0 shadow-2xl transform transition-transform duration-300 ease-in-out z-40 ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}>
         <div className="flex flex-col p-8 space-y-8 mt-16 font-mono">

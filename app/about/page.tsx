@@ -12,15 +12,17 @@ export default function About() {
           {/* LEFT: Avatar Image */}
           <div className="col-span-1 flex items-center justify-center md:justify-start">
              {/* The container gives the shape */}
-             <div className="aspect-square bg-mantle rounded-xl border border-surface0 overflow-hidden relative transition-all duration-300 shadow-2xl shadow-black/50 w-full max-w-[260px]">
+             <div className="bg-mantle rounded-xl border border-surface0 overflow-hidden relative transition-all duration-300 shadow-2xl shadow-black/50 w-full max-w-[260px]" style={{ aspectRatio: '1 / 1' }}>
                 
-                {/* THE IMAGE COMPONENT (no tilt or hover color change) */}
+                {/* THE IMAGE COMPONENT: use explicit width/height so Next can optimize */}
                 <Image 
                   src="/avatar.jpg" // This looks in the 'public' folder
                   alt="Avinash Sangisetti"
-                  fill // Fills the container automatically
-                  className="object-cover" 
+                  width={260}
+                  height={260}
+                  className="object-cover"
                   priority // Loads immediately
+                  quality={80}
                 />
                 
                 {/* Optional: Inner Border for that 'frame' look */}
@@ -32,21 +34,16 @@ export default function About() {
           <div className="col-span-1 md:col-span-2 space-y-6 font-mono text-subtext0 leading-relaxed">
             <h1 className="text-3xl font-bold text-text mb-6">About Me</h1>
             
-            <p>
-              Hey! I'm <span className="text-green">Avinash</span> (@Dustless-web) – a Computer Science Engineer at 
-              KSIT based out of <span className="text-blue underline decoration-dotted underline-offset-4">Bengaluru, India</span>. 
-              I like to make cool projects when I'm bored.
+            <p className="lead">
+              Hi — I'm <span className="text-green">Avinash</span> (@Dustless-web), a Computer Science Engineer at KSIT based in <span className="text-blue">Bengaluru</span>. I build Android apps and AI systems that prioritize reliability and simplicity.
             </p>
 
             <p>
-              Some of my more notable projects include <span className="text-text border-b border-green">SGuardian</span>, 
-              where I built a fall detection system, and <span className="text-text border-b border-red">Biomed-Waste</span>, 
-              a tracking tool for hospital compliance.
+              Notable projects: <span className="text-text border-b border-green">SGuardian</span> (fall detection) and <span className="text-text border-b border-red">Biomed-Waste</span> (hospital tracking & compliance).
             </p>
 
             <p>
-              Outside of software, I enjoy playing <span className="text-yellow">Clash of Clans</span> (TH11 Max!), 
-              analyzing films like <span className="italic">The Godfather</span>, and studying philosophy.
+              Outside work, I enjoy games, cinema, and philosophy. If you'd like to work together or chat, <a href="mailto:avinashsangisetti@gmail.com" className="text-green hover:underline">email me</a> or <a href="/resume" className="text-text border-b border-surface0 hover:text-green">view my resume</a>.
             </p>
           </div>
 
